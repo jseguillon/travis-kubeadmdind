@@ -18,3 +18,4 @@ script:
   - ls ~
   - ~/.kubeadm-dind-cluster/kubectl get nodes 
   - ~/.kubeadm-dind-cluster/kubectl get all --all-namespaces 
+  - top -b -n1
