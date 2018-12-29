@@ -1,0 +1,19 @@
+sudo: required
+services: docker
+language: minimal
+
+# env:
+#   - VAR=val
+
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y liblz4-tool
+  - curl -Lo dind-cluster-v1.13.sh https://github.com/kubernetes-sigs/kubeadm-dind-cluster/releases/download/v0.1.0/dind-cluster-v1.13.sh
+  - chmod +x ./dind-cluster-v1.13.sh 
+  - ./dind-cluster-v1.13.sh up
+
+script:
+  - ls ~
+  - ~/.kubeadm-dind-cluster/kubectl get nodes 
+  - ~/.kubeadm-dind-cluster/kubectl get all --all-namespaces 
