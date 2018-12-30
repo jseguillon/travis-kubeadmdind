@@ -16,8 +16,8 @@ before_install:
 
 script:
   - ls ~
-  - ~/.kubeadm-dind-cluster/kubectl get nodes 
-  - ~/.kubeadm-dind-cluster/kubectl get all --all-namespaces 
+  - ~/.kubeadm-dind-cluster/kubectl get nodes -o wide
+  - ~/.kubeadm-dind-cluster/kubectl get all -o wide --all-namespaces 
   - sudo ps afux  | sort -n -k5 |  awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
   - free -mh
   - uptime
