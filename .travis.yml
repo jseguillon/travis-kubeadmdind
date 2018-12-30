@@ -20,3 +20,8 @@ script:
   - ~/.kubeadm-dind-cluster/kubectl get all --all-namespaces 
   - sudo ps afux  | sort -n -k5 |  awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
   - free -mh
+  - uptime
+  - sleep 20
+  - uptime
+  - sleep 1 
+  - uptime
