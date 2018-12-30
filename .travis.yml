@@ -18,4 +18,5 @@ script:
   - ls ~
   - ~/.kubeadm-dind-cluster/kubectl get nodes 
   - ~/.kubeadm-dind-cluster/kubectl get all --all-namespaces 
-  - top -b -n1
+  - sudo ps afux  | sort -n -k5 |  awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
+  - free -mh
