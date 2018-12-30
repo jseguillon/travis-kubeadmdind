@@ -34,5 +34,5 @@ script:
   - uptime
   - sleep 20
   - uptime
-  - sleep 1 
+  - sleep 60
   - uptime
