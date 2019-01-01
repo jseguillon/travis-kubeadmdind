@@ -20,10 +20,10 @@ cache:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y liblz4-tool
-  - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
+ # - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
   - curl -Lo dind-cluster-v1.13.sh https://github.com/kubernetes-sigs/kubeadm-dind-cluster/releases/download/v0.1.0/dind-cluster-v1.13.sh
   - chmod +x ./dind-cluster-v1.13.sh 
-  - ./dind-cluster-v1.13.sh up
+  - time ./dind-cluster-v1.13.sh up
 
 script:
   - ls ~
@@ -37,3 +37,4 @@ script:
   - sleep 60
   - uptime
   - sudo cat /proc/cpuinfo
+  
