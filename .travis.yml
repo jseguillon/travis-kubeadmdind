@@ -36,3 +36,4 @@ script:
   - uptime
   - sleep 60
   - uptime
+  - sudo cat /proc/cpuinfo
