@@ -29,7 +29,7 @@ script:
   - ls ~
   - ~/.kubeadm-dind-cluster/kubectl get nodes -o wide
   - ~/.kubeadm-dind-cluster/kubectl get all -o wide --all-namespaces 
-  - sudo ps afux  | sort -n -k5 |  awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
+  - sudo ps aux | sort -n -k6 | awk 'NR>1 {$5=int($5/1024)"M";$6=int($6/1024)"M"}{ print;}'
   - free -mh
   - uptime
   - sleep 20
